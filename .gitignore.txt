@@ -1,0 +1,51 @@
+# User-specific files
+UserSettings/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]istro/
+[Ll]og/
+[Ll]ogs/
+
+# Uncomment if you have a macOS machine
+# .DS_Store
+
+# Windows Installer files
+Thumbs.db
+ehthumbs.db
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Unity-specific
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Artifacts/
+UserSettings/
+
+# Uncomment if you want to include the compiled asset bundles
+# AssetBundles/
+
+# JetBrains Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Unity Package Manager
+Packages/packages-lock.json
+
+# Auto-generated files
+.vs/
+.vscode/
+.idea/
+
+# Windows specific
+Desktop.ini
