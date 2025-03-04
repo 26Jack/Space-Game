@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
     public float thrust = 5f;
     private Rigidbody2D rb;
 
+    public GameObject playerBulletPrefab;
+
+    public float shootCooldown = 0.2f;
+    private float timer = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,10 +24,32 @@ public class PlayerController : MonoBehaviour
         float rotationInput = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.back * rotationInput * rotationSpeed * Time.deltaTime);
 
+        timer += Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (timer >= shootCooldown)
+            {
+                shoot();
+                timer = 0;
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
         // Thrust
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddForce(transform.up * thrust);
+        }
+    }
+
+    public void shoot()
+    {
+        if (playerBulletPrefab != null)
+        {
+            GameObject bullet = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
         }
     }
 

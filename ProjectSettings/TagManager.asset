@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Glow
+    uniqueID: 2795629811
+    locked: 0
   - name: Player
     uniqueID: 1899314681
     locked: 0

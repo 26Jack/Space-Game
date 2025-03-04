@@ -64,6 +64,7 @@
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\BorderManager.cs" />
     <Compile Include="Assets\EnemyShooter.cs" />
+    <Compile Include="Assets\PlayerBullet.cs" />
     <Compile Include="Assets\ShooterSpawnpoint.cs" />
     <Compile Include="Assets\Bullet.cs" />
   </ItemGroup>

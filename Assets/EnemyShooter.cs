@@ -17,7 +17,7 @@ public class EnemyShooter : MonoBehaviour
     public float speedToExit = 20f;
     public float randomForce;
 
-    public GameObject bulletPrefab;
+    public GameObject enemyBulletPrefab;
 
     private Transform target;
 
@@ -97,9 +97,9 @@ public class EnemyShooter : MonoBehaviour
 
     public void Shoot()
     {
-        if (bulletPrefab != null)
+        if (enemyBulletPrefab != null)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            GameObject bullet = Instantiate(enemyBulletPrefab, transform.position, transform.rotation);
         }
     }
 }
