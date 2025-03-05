@@ -17,7 +17,6 @@ public class ShooterSpawnpoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.time);
         timer += Time.deltaTime;
 
         if (timer > spawnInterval)

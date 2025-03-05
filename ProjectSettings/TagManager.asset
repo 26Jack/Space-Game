@@ -52,3 +52,21 @@ TagManager:
   - name: Player
     uniqueID: 1899314681
     locked: 0
+  - name: Wall
+    uniqueID: 275114499
+    locked: 0
+  - name: Corners
+    uniqueID: 1470039893
+    locked: 0
+  - name: UI Borders
+    uniqueID: 961071249
+    locked: 0
+  - name: Warning
+    uniqueID: 1298643917
+    locked: 0
+  - name: Gameplay Notif
+    uniqueID: 3080273219
+    locked: 0
+  - name: UI
+    uniqueID: 3266904913
+    locked: 0

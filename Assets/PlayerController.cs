@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float shootCooldown = 0.2f;
     private float timer = 0;
 
+    public GameObject[] deathEffects;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,8 +61,22 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy Bullet"))
         {
-            Destroy(gameObject);
+            Die();
+        }
+
+        if(collision.gameObject.CompareTag("Enemy Ship"))
+        {
+            Die();
         }
     }
 
+    public void Die()
+    {
+        foreach (var effect in deathEffects)
+        {
+            // play death effects
+            Instantiate(effect, transform.position, transform.rotation);
+        }
+        Destroy(gameObject);
+    }
 }

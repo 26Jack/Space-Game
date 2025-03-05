@@ -26,16 +26,19 @@ public class BorderManager : MonoBehaviour
         {
             // Top edge
             Instantiate(visualPrefab, new Vector3(i * 16, (length / 2) * 16, 0), Quaternion.identity);
-            //Instantiate(solidPrefab, new Vector3(i * 16, (length / 2) * 16, 0), Quaternion.identity);
+            // Instantiate(solidPrefab, new Vector3(i * 16, (length / 2) * 16, 0), Quaternion.identity);
+
             // Bottom edge
             Instantiate(visualPrefab, new Vector3(i * 16, -(length / 2) * 16, 0), Quaternion.identity);
-            //Instantiate(solidPrefab, new Vector3(i * 16, -(length / 2) * 16, 0), Quaternion.identity);
-            // Left edge
-            Instantiate(visualPrefab, new Vector3(-(length / 2) * 16, i * 16, 0), Quaternion.identity);
-            //Instantiate(solidPrefab, new Vector3(-(length / 2) * 16, i * 16, 0), Quaternion.identity);
-            // Right edge
-            Instantiate(visualPrefab, new Vector3((length / 2) * 16, i * 16, 0), Quaternion.identity);
-            //Instantiate(solidPrefab, new Vector3((length / 2) * 16, i * 16, 0), Quaternion.identity);
+            // Instantiate(solidPrefab, new Vector3(i * 16, -(length / 2) * 16, 0), Quaternion.identity);
+
+            // Left edge (Rotated 90 degrees clockwise)
+            Instantiate(visualPrefab, new Vector3(-(length / 2) * 16, i * 16, 0), Quaternion.Euler(0, 0, -90));
+            // Instantiate(solidPrefab, new Vector3(-(length / 2) * 16, i * 16, 0), Quaternion.Euler(0, 0, -90));
+
+            // Right edge (Rotated 90 degrees clockwise)
+            Instantiate(visualPrefab, new Vector3((length / 2) * 16, i * 16, 0), Quaternion.Euler(0, 0, -90));
+            // Instantiate(solidPrefab, new Vector3((length / 2) * 16, i * 16, 0), Quaternion.Euler(0, 0, -90));
         }
     }
 }

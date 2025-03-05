@@ -19,7 +19,11 @@ public class EnemyShooter : MonoBehaviour
 
     public GameObject enemyBulletPrefab;
 
+    public GameObject scoreNotif;
+
     private Transform target;
+
+    public GameObject[] deathEffects;
 
     public float lifetime = 20;
     private float timer = 0;
@@ -107,7 +111,26 @@ public class EnemyShooter : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Bullet"))
         {
-            Destroy(gameObject);
+            Die();
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        foreach (var effect in deathEffects)
+        {
+            // play death effects
+            Instantiate(effect, transform.position, transform.rotation);
+            GameObject notif = Instantiate(scoreNotif, transform.position, Quaternion.identity);
+        }
+        FindObjectOfType<ScoreManager>().AddScore(100);
+
+
+        Destroy(gameObject);
     }
 }
