@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{F99D3AF1-9D58-DB0D-A860-4A1434E8FEEF}|">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="eaa590c4-b26b-485f-ad30-dad5906355fe" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BulletBreakEffect.cs">
+    <Files>
+      <File FileName="Assets/PlayerBullet.cs" Line="44" Column="28" />
+      <File FileName="Assets/PlayerController.cs" Line="55" Column="10" />
+      <File FileName="Assets/EnemyShooter.cs" Line="112" Column="6" />
+      <File FileName="Assets/Bullet.cs" Line="46" Column="52" />
+      <File FileName="Assets/BulletBreakEffect.cs" Line="25" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Space-Game" expanded="True">
+            <Node name="Assets" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

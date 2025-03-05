@@ -195,9 +195,9 @@ GameObject:
   m_Component:
   - component: {fileID: 133393844}
   - component: {fileID: 133393845}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,9 +272,9 @@ GameObject:
   m_Component:
   - component: {fileID: 189840923}
   - component: {fileID: 189840924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5605,9 +5605,9 @@ GameObject:
   m_Component:
   - component: {fileID: 975514296}
   - component: {fileID: 975514297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5687,9 +5687,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1190384338}
   - component: {fileID: 1190384339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5818,7 +5818,7 @@ GameObject:
   - component: {fileID: 1623405281}
   - component: {fileID: 1623405282}
   - component: {fileID: 1623405283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5907,6 +5907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 160
   thrust: 100
+  recoil: 500
   playerBulletPrefab: {fileID: 8380825333843256127, guid: 62c40b77e9d45b8498c4ca6bc053de8b, type: 3}
   shootCooldown: 0.2
 --- !u!50 &1623405282

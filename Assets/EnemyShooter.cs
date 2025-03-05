@@ -102,4 +102,12 @@ public class EnemyShooter : MonoBehaviour
             GameObject bullet = Instantiate(enemyBulletPrefab, transform.position, transform.rotation);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player Bullet"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

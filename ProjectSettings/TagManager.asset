@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - Wall
+  - Enemy Bullet
+  - Player Bullet
+  - Enemy Ship
   layers:
   - Default
   - TransparentFX
@@ -12,12 +16,12 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Player Bullet
+  - Wall Collision
+  - Enemy Bullet
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy Ship
   - 
   - 
   - 
