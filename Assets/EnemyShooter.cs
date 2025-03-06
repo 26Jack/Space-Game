@@ -95,7 +95,6 @@ public class EnemyShooter : MonoBehaviour
 
     public void RunAway()
     {
-        Debug.Log("applying leaving force");
         rb.AddForce(transform.up * leavingForce, ForceMode2D.Force);
     }
 

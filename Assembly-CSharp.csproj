@@ -63,10 +63,14 @@
     <Compile Include="Assets\Warning.cs" />
     <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\ShooterSpawner.cs" />
+    <Compile Include="Assets\ScoreDisplay.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\ScoreNotif.cs" />
     <Compile Include="Assets\BorderManager.cs" />
+    <Compile Include="Assets\WallShake.cs" />
+    <Compile Include="Assets\ScoreDigit.cs" />
     <Compile Include="Assets\EnemyShooter.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\PlayerBullet.cs" />
     <Compile Include="Assets\ShooterSpawnpoint.cs" />
     <Compile Include="Assets\Bullet.cs" />

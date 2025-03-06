@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     private int score = 0;
+    public ScoreDisplay scoreDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,11 @@ public class ScoreManager : MonoBehaviour
         if (scoreText == null)
         {
             scoreText = FindObjectOfType<TMP_Text>();
+        }
+
+        if (scoreDisplay == null)
+        {
+            scoreDisplay = FindObjectOfType<ScoreDisplay>();
         }
 
         UpdateScoreText();
@@ -28,6 +34,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += points;
         UpdateScoreText();
+        scoreDisplay.UpdateScore(score);
     }
 
     void UpdateScoreText()

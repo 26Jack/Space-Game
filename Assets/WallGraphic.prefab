@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9009920137043464113}
   - component: {fileID: 572120850230638113}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Ambient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.026415067, b: 0.26415092, a: 0.38431373}
+      maxColor: {r: 0, g: 0.026415067, b: 0.26415092, a: 0.5686275}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4795,8 +4795,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -238882631
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4840,6 +4840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4437951004207730094}
   - component: {fileID: 453578410974200352}
+  - component: {fileID: -269484001622593342}
   m_Layer: 0
   m_Name: WallGraphic
   m_TagString: Untagged
@@ -4902,7 +4903,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 275114499
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1326131310, guid: 23bb4e5401949af46ae6809da9f463a1, type: 3}
   m_Color: {r: 0, g: 0.6293888, b: 1, a: 1}
@@ -4915,3 +4916,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-269484001622593342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695656721754953752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7e7e231c12d6f4d9b3b222bc4d1cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeIntensity: 2
+  shakeDuration: 0.1
+  shakeCooldown: 0.1
+  detectionRadius: 12
+  brightness: 10

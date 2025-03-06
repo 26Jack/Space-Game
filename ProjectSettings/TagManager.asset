@@ -43,11 +43,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind BG
+    uniqueID: 4056084665
+    locked: 0
+  - name: BG
+    uniqueID: 2795629811
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Glow
-    uniqueID: 2795629811
     locked: 0
   - name: Player
     uniqueID: 1899314681
@@ -61,12 +64,12 @@ TagManager:
   - name: UI Borders
     uniqueID: 961071249
     locked: 0
-  - name: Warning
-    uniqueID: 1298643917
-    locked: 0
   - name: Gameplay Notif
     uniqueID: 3080273219
     locked: 0
   - name: UI
     uniqueID: 3266904913
+    locked: 0
+  - name: Warning (Above all)
+    uniqueID: 1298643917
     locked: 0
