@@ -14,11 +14,26 @@ public class PlayerController : MonoBehaviour
     public float shootCooldown = 0.2f;
     private float timer = 0;
 
+    public int ammo = 15;
+    public int maxAmmo = 15;
+    public float ammoTimer = 0;
+    public float ammoTimerThresh = 1f;
+    public float ammoReloadTime = 0.3f;
+
     public GameObject[] deathEffects;
+    public AmmoDisplay ammoDisplay;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        if (ammoDisplay == null)
+        {
+            ammoDisplay = FindObjectOfType<AmmoDisplay>();
+        }
+
+        ammoDisplay.UpdateAmmo(ammo);
     }
 
     void Update()
@@ -28,14 +43,28 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.back * rotationInput * rotationSpeed * Time.deltaTime);
 
         timer += Time.deltaTime;
+        ammoTimer += Time.deltaTime;
+
+        if (ammoTimer > ammoTimerThresh)
+        {
+            if (ammo < maxAmmo)
+            {
+                AddAmmo();
+                ammoTimer -= ammoReloadTime;
+            }
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {
             if (timer >= shootCooldown)
             {
-                shoot();
-                rb.AddForce(transform.up * -recoil);
-                timer = 0;
+                if (ammo > 0)
+                {
+                    shoot();
+                    rb.AddForce(transform.up * -recoil);
+                    timer = 0;
+                }
+                
             }
         }
     }
@@ -54,6 +83,8 @@ public class PlayerController : MonoBehaviour
         if (playerBulletPrefab != null)
         {
             GameObject bullet = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
+            LoseAmmo();
+            ammoTimer = 0;
         }
     }
 
@@ -78,5 +109,19 @@ public class PlayerController : MonoBehaviour
             Instantiate(effect, transform.position, transform.rotation);
         }
         Destroy(gameObject);
+    }
+
+    public void LoseAmmo()
+    {
+        ammo--;
+        ammoDisplay.UpdateAmmo(ammo);
+
+    }
+
+    public void AddAmmo()
+    {
+        ammo++;
+        ammoDisplay.UpdateAmmo(ammo);
+
     }
 }

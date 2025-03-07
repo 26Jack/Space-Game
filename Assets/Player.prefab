@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1899314681
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 466b5292b57ce3f4bbf4fb06a173c9d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,11 +105,17 @@ MonoBehaviour:
   recoil: 500
   playerBulletPrefab: {fileID: 8380825333843256127, guid: 62c40b77e9d45b8498c4ca6bc053de8b, type: 3}
   shootCooldown: 0.2
+  ammo: 17
+  maxAmmo: 17
+  ammoTimer: 0
+  ammoTimerThresh: 1.5
+  ammoReloadTime: 0.3
   deathEffects:
   - {fileID: 2575712132590349116, guid: b739617d2a2a49d41b65c4eda4de2a01, type: 3}
   - {fileID: 4825569175343625458, guid: c20e6465a9d6f3d4f889fcd183f1b81d, type: 3}
   - {fileID: 7576288929015046019, guid: ae00da9c7054dd94d9ee58311787e6a9, type: 3}
   - {fileID: 7576288929015046019, guid: caa847f84cbb6474baabfba5a47cfae7, type: 3}
+  ammoDisplay: {fileID: 0}
 --- !u!50 &8722824458026250817
 Rigidbody2D:
   serializedVersion: 4
