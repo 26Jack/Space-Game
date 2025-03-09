@@ -17,6 +17,8 @@ public class EnemyShooter : MonoBehaviour
     public float speedToExit = 20f;
     public float randomForce;
 
+    public int score = 150;
+
     public GameObject enemyBulletPrefab;
 
     public GameObject scoreNotif;
@@ -125,10 +127,10 @@ public class EnemyShooter : MonoBehaviour
         {
             // play death effects
             Instantiate(effect, transform.position, transform.rotation);
-            GameObject notif = Instantiate(scoreNotif, transform.position, Quaternion.identity);
         }
-        FindObjectOfType<ScoreManager>().AddScore(100);
 
+        GameObject notif = Instantiate(scoreNotif, transform.position, Quaternion.identity);
+        FindObjectOfType<ScoreManager>().AddScore(150);
 
         Destroy(gameObject);
     }

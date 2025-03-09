@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterSpawner : MonoBehaviour
+public class SelfDestruct : MonoBehaviour
 {
-    public GameObject shooterPrefab;
-    float randomRotation;
+    public float timer = 0f;
+    public float lifetime = 20f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        randomRotation = Random.Range(0f, 360f);
-        transform.Rotate(0f, 0f, randomRotation);
+        timer += Time.deltaTime;
+
+        if (timer >= lifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 }

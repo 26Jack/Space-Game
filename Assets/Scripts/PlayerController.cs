@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 100f;
     public float thrust = 5f;
     public float recoil = 10f;
+    public float invinThrustMod = 15;
     private Rigidbody2D rb;
 
     public GameObject playerBulletPrefab;
+    public GameObject playerMiragePrefab;
+
+    public float mirageTimer = 0;
+    public float mirageThresh = 100;
 
     public float shootCooldown = 0.2f;
     private float timer = 0;
@@ -20,8 +25,19 @@ public class PlayerController : MonoBehaviour
     public float ammoTimerThresh = 1f;
     public float ammoReloadTime = 0.3f;
 
+    public int maxHealth = 3;
+    public int health = 3;
+    public float invinTimer = 0;
+    public bool invin = false;
+
+
     public GameObject[] deathEffects;
+    public GameObject[] hitEffects;
     public AmmoDisplay ammoDisplay;
+    public HealthDisplay healthDisplay;
+    public GameObject fakeAmmoUI;
+    public AudioSource audioSource;
+
 
 
     void Start()
@@ -33,7 +49,14 @@ public class PlayerController : MonoBehaviour
             ammoDisplay = FindObjectOfType<AmmoDisplay>();
         }
 
+        if (healthDisplay == null)
+        {
+            healthDisplay = FindObjectOfType<HealthDisplay>();
+        }
+
         ammoDisplay.UpdateAmmo(ammo);
+        healthDisplay.UpdateHealth(health);
+
     }
 
     void Update()
@@ -44,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
         timer += Time.deltaTime;
         ammoTimer += Time.deltaTime;
+        mirageTimer += Time.deltaTime;
 
         if (ammoTimer > ammoTimerThresh)
         {
@@ -67,6 +91,8 @@ public class PlayerController : MonoBehaviour
                 
             }
         }
+
+        //Debug.Log(rb.velocity.magnitude);
     }
 
     private void FixedUpdate()
@@ -76,6 +102,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * thrust);
         }
+
+        if (rb.velocity.magnitude > 80)
+        {
+            GameObject mirage = Instantiate(playerMiragePrefab, transform.position, transform.rotation);
+            mirageTimer = 0;
+            Debug.Log("mirage");
+        }
     }
 
     public void shoot()
@@ -84,6 +117,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bullet = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
             LoseAmmo();
+            audioSource.Play();
             ammoTimer = 0;
         }
     }
@@ -92,13 +126,67 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy Bullet"))
         {
-            Die();
+            if (invin == false)
+            {
+                Hit();
+            }
         }
 
         if(collision.gameObject.CompareTag("Enemy Ship"))
         {
-            Die();
+            if (invin == false)
+            {
+                Hit();
+            }
         }
+    }
+
+    public void Hit()
+    {
+        health--;
+        rb.velocity = Vector3.zero;
+
+        thrust += invinThrustMod;
+
+        hitFlashes();
+        invin = true;
+        healthDisplay.UpdateHealth(health);
+
+        if (health <= 0)
+        {
+            Die();
+        } 
+        else // dont play hit effects on death
+        {
+            foreach (var effect in hitEffects)
+            {
+                // play death effects
+                Instantiate(effect, transform.position, transform.rotation);
+            }
+        }
+    }
+
+    public void hitFlashes()
+    {
+        StartCoroutine(FlashPlayerSprite());
+    }
+
+    private IEnumerator FlashPlayerSprite()
+    {
+        int flashes = 10;
+        float flashDuration = 0.1f;
+
+        for (int i = 0; i < flashes; i++)
+        {
+            // toggle visibility
+            GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(flashDuration);
+            GetComponent<SpriteRenderer>().enabled = true;
+            yield return new WaitForSeconds(flashDuration);
+        }
+
+        invin = false;
+        thrust -= invinThrustMod;
     }
 
     public void Die()

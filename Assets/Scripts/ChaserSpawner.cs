@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShooterSpawnpoint : MonoBehaviour
+public class ChaserSpawner : MonoBehaviour
 {
-    public GameObject shooterPrefab;
-    private float timer = 0f;
+    public GameObject chaserPrefab;
+    public float timer = 0f;
     public float spawnInterval = 1f;
 
     public float spawnIncreaseTimer = 0f;
@@ -31,7 +30,8 @@ public class ShooterSpawnpoint : MonoBehaviour
 
         if (timer > spawnInterval)
         {
-            if (!canSpawn) {
+            if (!canSpawn)
+            {
                 return;
             }
 
@@ -39,7 +39,7 @@ public class ShooterSpawnpoint : MonoBehaviour
             timer = 0f;
         }
 
-        if (spawnIncreaseTimer > spawnIncreaseInterval) 
+        if (spawnIncreaseTimer > spawnIncreaseInterval)
         {
             if (spawnInterval > maxSpawnRate)
             {
@@ -50,8 +50,8 @@ public class ShooterSpawnpoint : MonoBehaviour
                 { //ugly
                     spawnInterval = maxSpawnRate;
                 }
-            } 
-            
+            }
+
             else
             {
                 spawnInterval = maxSpawnRate;
@@ -63,14 +63,13 @@ public class ShooterSpawnpoint : MonoBehaviour
 
     public void Spawn()
     {
-        if (shooterPrefab != null)
+        if (chaserPrefab != null)
         {
             {
-                GameObject shooter = Instantiate(shooterPrefab, transform.position, transform.rotation);
+                GameObject shooter = Instantiate(chaserPrefab, transform.position, transform.rotation);
                 //GameManager.Instance.RegisterObject(shooter);
 
             }
         }
     }
 }
-
