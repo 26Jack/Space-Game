@@ -29,28 +29,28 @@ public class KillTracker : MonoBehaviour
     public void ChaserKilled()
     {
         chasersKilled++;
-        Debug.Log(chasersKilled);
+        //Debug.Log(chasersKilled);
         UpdateKillDisplay();
     }
 
     public void WandererKilled()
     {
         wanderersKilled++;
-        Debug.Log(wanderersKilled);
+        //Debug.Log(wanderersKilled);
         UpdateKillDisplay();
     }
 
     public void ShooterKilled()
     {
         shootersKilled++;
-        Debug.Log(shootersKilled);
+        //Debug.Log(shootersKilled);
         UpdateKillDisplay();
     }
 
     public void DrifterKilled()
     {
         driftersKilled++;
-        Debug.Log(driftersKilled);
+        //Debug.Log(driftersKilled);
         UpdateKillDisplay();
     }
 

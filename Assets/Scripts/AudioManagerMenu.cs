@@ -2,51 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManagerMenu : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static AudioManagerMenu Instance;
 
     private AudioSource audioSource;
     private AudioSource loopAudioSource;
 
     // To run in another script:
-    // AudioManager.Instance.PlaySound(AudioManager.Instance.shooterShoot);
+    // AudioManagerMenu.Instance.PlaySound(AudioManagerMenu.Instance.shooterShoot);
 
-    public AudioClip playerShoot;
-    public AudioClip playerHit;
-    public AudioClip playerDie;
-
-    public AudioClip playerThrust;
-
-    public AudioClip ammoRecharge1;
-    public AudioClip ammoRecharge2;
-    public AudioClip ammoRecharge3;
-    public AudioClip outOfAmmo;
-    public AudioClip wallHit;
-
-    public AudioClip shooterShoot;
-    public AudioClip drifterShoot;
-
-    public AudioClip chaserDie;
-    public AudioClip wandererDie;
-    public AudioClip shooterDie;
-    public AudioClip drifterDie;
-
-    public AudioClip stageAdvance;
-
-    public AudioClip restartStart;
-    public AudioClip restartEnd;
-
-    public AudioClip points1;
-    public AudioClip points2;
-    public AudioClip points3;
-
-    public AudioClip ambience1;
-    public AudioClip ambience2;
-    public AudioClip ambience3;
-    public AudioClip ambience4;
-    public AudioClip ambience5;
-    public AudioClip ambience6;
+    public AudioClip flashOff;
+    public AudioClip flashOn;
 
     void Awake()
     {

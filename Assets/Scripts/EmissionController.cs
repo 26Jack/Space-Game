@@ -13,6 +13,10 @@ public class EmissionController : MonoBehaviour
 
     public float emissionRate = 25;
     public float emissionMult = 4;
+    public float emissionFlat = 0;
+
+    public bool changeEmission = true;
+    public bool changeColor = true;
 
     public Color color1 = Color.white;
     public Color color2 = Color.red;
@@ -40,15 +44,21 @@ public class EmissionController : MonoBehaviour
 
     public void SetEmissionRate(float newRate)
     {
-        emissionModule.rateOverTime = newRate * emissionMult;
+        if (changeEmission)
+        {
+            emissionModule.rateOverTime = newRate * emissionMult + emissionFlat;
+        }
     }
 
     public void SetRandomColor(float alpha)
     {
-        alpha = Mathf.Clamp01(alpha * transparencyMult);
+        if (changeColor)
+        {
+            alpha = Mathf.Clamp01(alpha * transparencyMult);
 
-        color1.a = alpha;
-        color2.a = alpha;
-        mainModule.startColor = new ParticleSystem.MinMaxGradient(color1, color2);
+            color1.a = alpha;
+            color2.a = alpha;
+            mainModule.startColor = new ParticleSystem.MinMaxGradient(color1, color2);
+        }
     }
 }

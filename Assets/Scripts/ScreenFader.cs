@@ -12,13 +12,14 @@ public class ScreenFader : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+       if (Instance == null)
         {
             Instance = this;
+            //DontDestroyOnLoad(gameObject); // keep this object across scenes
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject); // prevent 2 instances
             return;
         }
 

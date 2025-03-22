@@ -20,7 +20,7 @@ public class StageManager : MonoBehaviour
 
     public GameObject advanceFlash;
 
-    public EmissionController emissionController;
+    public List<EmissionController> emissionControllers = new List<EmissionController>();
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +47,7 @@ public class StageManager : MonoBehaviour
             stageDisplay = FindObjectOfType<StageDisplay>();
         }
 
-        if (emissionController == null)
-        {
-            emissionController = FindObjectOfType<EmissionController>();
-        }
+        emissionControllers.AddRange(FindObjectsOfType<EmissionController>());
 
         updateAll();
     }
@@ -89,8 +86,11 @@ public class StageManager : MonoBehaviour
         wandererSpawner.LevelUpdate(currentStage);
         drifterSpawner.LevelUpdate(currentStage);
 
-        emissionController.SetEmissionRate(currentStage);
-        emissionController.SetRandomColor(currentStage);
+        foreach (var controller in emissionControllers)
+        {
+            controller.SetRandomColor(currentStage);
+            controller.SetEmissionRate(currentStage);
+        }
     }
 
     public void pauseStages()

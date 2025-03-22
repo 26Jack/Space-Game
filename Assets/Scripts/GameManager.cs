@@ -6,22 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private List<GameObject> objectsToDelete = new List<GameObject>();
-
-    public static GameManager Instance; // figure out what a singleton patter is
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // keep this GameManager across scene reloads
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         AudioManager.Instance.PlaySound(AudioManager.Instance.restartEnd, 0.5f);
     }
 
@@ -30,22 +19,12 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GameManager.Instance.RestartGame();
+            RestartGame();
         }
-    }
-
-    public void RegisterObject(GameObject obj)
-    {
-        objectsToDelete.Add(gameObject);
     }
 
     public void RestartGame()
     {
-        foreach (var obj in objectsToDelete)
-        {
-            if (obj != null) Destroy(obj);
-        }
-        objectsToDelete.Clear();
         AudioManager.Instance.PlaySound(AudioManager.Instance.restartStart, 0.5f);
 
         // start fade effect before restarting
