@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
     private int score = 0;
     public ScoreDisplay scoreDisplay;
+    public BestScore bestScore;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class ScoreManager : MonoBehaviour
         score += points;
         UpdateScoreText();
         scoreDisplay.UpdateScore(score);
+        bestScore.UpdateScore(score);
     }
 
     void UpdateScoreText()

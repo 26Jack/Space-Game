@@ -62,7 +62,7 @@ MonoBehaviour:
   thrustSound: {fileID: 8300000, guid: cd0d84c42940b42f2933b11478b5c0aa, type: 3}
   score: 125
   randomTarget: 0
-  scoreNotif: {fileID: 6639011683515240921, guid: dcbfd75cefc79ba4aad860a87e4cc4bd, type: 3}
+  scoreNotif: {fileID: 6639011683515240921, guid: c81e0ac810f0cc24f9aae1681a8a950d, type: 3}
   target: {fileID: 0}
   soundTarget: {fileID: 0}
   deathEffects:

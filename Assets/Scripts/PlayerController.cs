@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
             GameObject bullet = Instantiate(playerBulletPrefab, transform.position, transform.rotation);
             LoseAmmo();
             Camera.main.GetComponent<ScreenShake>().ShakeS();
-            AudioManager.Instance.PlaySound(AudioManager.Instance.playerShoot);
+            AudioManager.Instance.PlaySound(AudioManager.Instance.playerShoot, 0.8f);
             ammoTimer = 0;
         }
     }
