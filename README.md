@@ -3,9 +3,7 @@
 A 2D pixel-art bullet hell/shmup
 
 -Setup-
-Unity editor version 2022.3.20f1
-git clone https://github.com/26Jack/Space-Game.git
-Add project from disc
+Download from https://defenestrater.itch.io/spaced-in or play in a browser with https://26jack.github.io/Spaced-In-Web/
 
 -Controls-
 Up arrow/W to thrust
